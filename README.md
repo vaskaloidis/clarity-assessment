@@ -60,7 +60,7 @@ To exit select option 4.
 Visit `http://localhost:4567/queue` for the queue
 
 ```
-[ { "tailNumber" : "N787BR", "model" : null, "type" : "PASSENGER", "size" : "SMALL", "queueTime" : 543521064296404 } ]
+[ { "tailNumber" : "N787BR", "type" : "PASSENGER", "size" : "SMALL", "queueTime" : 543521064296404 } ]
 ```
 
 To enqueue an aircraft you must send a GET request to `http://localhost:4567/enqueue/:tailnumber/:type/:size`
@@ -105,7 +105,7 @@ To create an aircraft, you must (at minimum) define the aircraft-type (`CARGO` o
 
 
 ```java
-    // Passenger ircrafts
+    // Passenger aircrafts
     Aircraft ac1 = new Aircraft(AircraftType.CARGO, AircraftSize.LARGE);
     Aircraft ac2 = new Aircraft(AircraftType.CARGO, AircraftSize.SMALL);
 
@@ -113,10 +113,10 @@ To create an aircraft, you must (at minimum) define the aircraft-type (`CARGO` o
     Aircraft ac3 = new Aircraft(AircraftType.PASSENGER, AircraftSize.LARGE);
     Aircraft ac4 = new Aircraft(AircraftType.PASSENGER, AircraftSize.SMALL);
 
-    // Additionally you may suppy a tail-number and model
+    // Additionally you may supply a tail-number
     Aircraft ac5 = new Aircraft("N787BR", AircraftType.PASSENGER, AircraftSize.SMALL);
-    Aircraft ac6 = new Aircraft("N595AZ", "Boeing 737-MAX", AircraftType.PASSENGER, AircraftSize.LARGE);
-    Aircraft ac6 = new Aircraft("N7225RU", "Antonov An-12", AircraftType.CARGO, AircraftSize.LARGE);
+    Aircraft ac6 = new Aircraft("N595AZ", AircraftType.PASSENGER, AircraftSize.LARGE);
+    Aircraft ac6 = new Aircraft("N7225RU", AircraftType.CARGO, AircraftSize.LARGE);
 ```
 
 To use the system, you must pass-in newly constructed `Request`(s) to `RequestManager#acm_request_process(Request)`

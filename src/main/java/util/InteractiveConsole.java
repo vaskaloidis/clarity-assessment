@@ -7,7 +7,6 @@ import lib.Request;
 import lib.RequestManager;
 import lib.Response;
 import model.Aircraft;
-import util.Utils;
 
 import java.util.Scanner;
 

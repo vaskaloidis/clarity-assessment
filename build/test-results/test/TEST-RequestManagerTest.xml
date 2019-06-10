@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RequestManagerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-06-10T04:47:22" hostname="Ares" time="0.022">
+<testsuite name="RequestManagerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-06-10T04:53:05" hostname="Ares" time="0.008">
   <properties/>
-  <testcase name="testEnqueueRequest" classname="RequestManagerTest" time="0.014"/>
+  <testcase name="testEnqueueRequest" classname="RequestManagerTest" time="0.003"/>
   <testcase name="verifySystemOffByDefault" classname="RequestManagerTest" time="0.0"/>
   <testcase name="testEnqueueBeforeStartedProperly" classname="RequestManagerTest" time="0.0"/>
   <testcase name="testStartAlreadyStartedSystem" classname="RequestManagerTest" time="0.001"/>
-  <testcase name="testDoubleEnqueueRequest" classname="RequestManagerTest" time="0.0"/>
-  <testcase name="verifySystemStartedProperly" classname="RequestManagerTest" time="0.001"/>
+  <testcase name="testDoubleEnqueueRequest" classname="RequestManagerTest" time="0.001"/>
+  <testcase name="verifySystemStartedProperly" classname="RequestManagerTest" time="0.0"/>
   <testcase name="testDequeue" classname="RequestManagerTest" time="0.001"/>
-  <system-out><![CDATA[Attempting to enqueue: Large Passenger Aircraft
-Attempting to enqueue: Large Passenger Aircraft
-Attempting to enqueue: Large Passenger Aircraft
-Attempting to enqueue: Large Passenger Aircraft
-Attempting to enqueue: Large Passenger Aircraft
-]]></system-out>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

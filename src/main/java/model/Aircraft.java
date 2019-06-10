@@ -2,10 +2,6 @@ package model;
 
 import enums.AircraftSize;
 import enums.AircraftType;
-import org.apache.commons.lang.time.DateUtils;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class Aircraft
 {
@@ -32,26 +28,8 @@ public class Aircraft
         this.size = size;
     }
 
-    /**
-     * Create a new aircraft specifying it's tail-number and model
-     * @param tailNumber
-     * @param model
-     * @param type
-     * @param size
-     */
-    public Aircraft(String tailNumber, String model, AircraftType type, AircraftSize size) {
-        this.tailNumber = tailNumber;
-        this.model = model;
-        this.type = type;
-        this.size = size;
-    }
-
     public String getTailNumber() {
         return tailNumber;
-    }
-
-    public String getModel() {
-        return model;
     }
 
     public AircraftType getType() {
@@ -74,7 +52,6 @@ public class Aircraft
     }
 
     private String tailNumber;
-    private String model;
     private AircraftType type;
     private AircraftSize size;
     private Long queueTime;
@@ -82,9 +59,7 @@ public class Aircraft
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if(tailNumber != null && model != null) {
-            sb.append(tailNumber + " " + model + " ");
-        } else if(tailNumber != null) {
+        if(tailNumber != null) {
             sb.append(tailNumber + " ");
         }
         sb.append(size.title() + " " + type.title() + " Aircraft");

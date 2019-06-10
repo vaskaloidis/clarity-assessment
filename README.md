@@ -140,6 +140,18 @@ To use the system, you must pass-in newly constructed `Request`(s) to `RequestMa
     Boolean status = rcm.systemRunning();
 ```
 
+### Queue algorithm
+
+The comparator in `/main/java/comparator/AircraftComparator.java` follows the following algorithm:
+
+```
+1. Passenger AC > Cargo AC
+2. Large AC > Small AC (Same Type)
+3. Earlier enqueued AC > Later Enqueued (Same Type + Size)
+```
+
+**The tests for this algorithm can be found in** `/test/java/QueueTest.java`
+
 ## Build and Test
 
 To build and generate distributions:

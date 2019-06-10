@@ -85,12 +85,8 @@ http://localhost:4567/enqueue/:tailnumber/passenger/small
 The system handles 3 types of requests which are mainly distinguished by the first value of the constructor
 
 ```java
-    import enums.AircraftSize;
-    import enums.AircraftType;
-    import enums.RequestType;
-    import lib.Request;
-    import model.Aircraft;
-
+    //public class Request {}
+    
     // Start Request
     new Request(RequestType.START);
 
@@ -126,16 +122,16 @@ To use the system, you must pass-in newly constructed `Request`(s) to `RequestMa
     RequestManager rm = new RequestManager();
 
     // First start the system (always)
-    rm.acm_request_process(new Request(RequestType.START));
+    Response response = rm.acm_request_process(new Request(RequestType.START));
 
     // Enqueue an aircraft
     Aircraft aircraft = new Aircraft(AircraftType.PASSENGER, AircraftSize.LARGE);
     Request request = new Request(RequestType.ENQUEUE, aircraft);
-    rm.acm_request_process(request);
+    Response response = rm.acm_request_process(request);
 
     // Dequeue the next aircraft
     Request request = new Request(RequestType.DEQUEUE);
-    rm.acm_request_process(request);
+    Response response = rm.acm_request_process(request);
 
     // Get the queue
     ArrayList<Aircraft> queue = rcm.getQueue();
@@ -146,6 +142,20 @@ To use the system, you must pass-in newly constructed `Request`(s) to `RequestMa
     // System status
     Boolean status = rcm.systemRunning();
 ```
+
+The `acm_request_process()` function returns a Response object with the following data
+
+```
+public class Response {
+    getQueue()      // The queue after the action was executed
+    getAircraft()   // The aircraft that was enqueued or the aircraft dequeued
+    getRequest()    // The initial request
+    getMessage()    // A message about the action that was executed
+}
+```
+
+This data is automatically converted to JSON and returned via REST
+
 
 ### Queue algorithm
 

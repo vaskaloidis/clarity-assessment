@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="QueueTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-10T06:29:52" hostname="Ares" time="0.026">
+<testsuite name="QueueTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-10T06:39:57" hostname="Ares" time="0.013">
   <properties/>
-  <testcase name="testAircraftTimeQueue" classname="QueueTest" time="0.005"/>
+  <testcase name="testAircraftTimeQueue" classname="QueueTest" time="0.006"/>
   <testcase name="TestEmptyQueueError" classname="QueueTest" time="0.001"/>
-  <testcase name="testFullQueueSorter" classname="QueueTest" time="0.002"/>
-  <testcase name="testAircraftTypeSort" classname="QueueTest" time="0.01"/>
+  <testcase name="testFullQueueSorter" classname="QueueTest" time="0.0"/>
+  <testcase name="testAircraftTypeSort" classname="QueueTest" time="0.003"/>
   <testcase name="testAircraftSizeSortPassenger" classname="QueueTest" time="0.0"/>
-  <testcase name="testAircraftSizeSortCargo" classname="QueueTest" time="0.003"/>
+  <testcase name="testAircraftSizeSortCargo" classname="QueueTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -8,6 +8,7 @@ import enums.RequestType;
 import error.AlreadyStartedError;
 import error.SystemNotStartedError;
 import lib.Request;
+import lib.Response;
 import lib.RequestManager;
 import model.Aircraft;
 import org.junit.Test;
@@ -44,9 +45,13 @@ public class RequestManagerTest {
     public void testEnqueueRequest() {
         Aircraft target = new Aircraft(AircraftType.PASSENGER, AircraftSize.LARGE);
         RequestManager rm = new RequestManager();
-        rm.acm_request_process(new Request(RequestType.START));
-        rm.acm_request_process(new Request(RequestType.ENQUEUE, target));
+        Request startRequest = new Request(RequestType.START);
+        rm.acm_request_process(startRequest);
+        Request enqueueRequest = new Request(RequestType.ENQUEUE, target);
+        Response response = rm.acm_request_process(enqueueRequest);
         assertTrue(rm.getQueue().contains(target));
+        assertEquals(target, response.getAircraft());
+        assertEquals(enqueueRequest, response.getRequest());
     }
 
     @Test

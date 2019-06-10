@@ -39,4 +39,12 @@ public class Request {
         }
     }
 
+    /**
+     * Returns the request type
+     * @return requestType object
+     */
+    public RequestType getType() {
+        return requestType;
+    }
+
 }

@@ -23,10 +23,11 @@ public class Queue {
         this.queue = new ArrayList<>();
     }
 
-    public void enqueueAircraft(Aircraft ac) {
+    public Aircraft enqueueAircraft(Aircraft ac) {
         ac.setQueueTime();
         this.queue.add(ac);
         sort();
+        return ac;
     }
 
     public Aircraft dequeueAircraft() {

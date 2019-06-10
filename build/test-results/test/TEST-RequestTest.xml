@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RequestTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-06-10T04:53:05" hostname="Ares" time="0.004">
+<testsuite name="RequestTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-06-10T06:29:52" hostname="Ares" time="0.009">
   <properties/>
-  <testcase name="testStartRequestParamError" classname="RequestTest" time="0.003"/>
+  <testcase name="testStartRequestParamError" classname="RequestTest" time="0.006"/>
   <testcase name="testDequeueRequestParamError" classname="RequestTest" time="0.001"/>
   <testcase name="TestEnqueueParamError" classname="RequestTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

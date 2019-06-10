@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RequestManagerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-06-10T04:53:05" hostname="Ares" time="0.008">
+<testsuite name="RequestManagerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-06-10T06:29:52" hostname="Ares" time="0.013">
   <properties/>
-  <testcase name="testEnqueueRequest" classname="RequestManagerTest" time="0.003"/>
-  <testcase name="verifySystemOffByDefault" classname="RequestManagerTest" time="0.0"/>
+  <testcase name="testEnqueueRequest" classname="RequestManagerTest" time="0.004"/>
+  <testcase name="verifySystemOffByDefault" classname="RequestManagerTest" time="0.001"/>
   <testcase name="testEnqueueBeforeStartedProperly" classname="RequestManagerTest" time="0.0"/>
-  <testcase name="testStartAlreadyStartedSystem" classname="RequestManagerTest" time="0.001"/>
-  <testcase name="testDoubleEnqueueRequest" classname="RequestManagerTest" time="0.001"/>
+  <testcase name="testStartAlreadyStartedSystem" classname="RequestManagerTest" time="0.0"/>
+  <testcase name="testDoubleEnqueueRequest" classname="RequestManagerTest" time="0.0"/>
   <testcase name="verifySystemStartedProperly" classname="RequestManagerTest" time="0.0"/>
-  <testcase name="testDequeue" classname="RequestManagerTest" time="0.001"/>
+  <testcase name="testDequeue" classname="RequestManagerTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

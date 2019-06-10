@@ -5,7 +5,11 @@
 ### CLI
 The application includes a built-in REST server and an interactive CLI that run in parallel.
 
-First select 3 to start the system
+Run the CLI `sh build/distributions/ATC-1.0-SNAPSHOT/bin/ATC`  (Batch file available there for windows also).
+
+To build new executables run `gradle build`
+
+To use the system, first select option 3 to start the system
 
 ```
 1. Enqueue aircraft
@@ -15,7 +19,7 @@ First select 3 to start the system
 5. Refresh
 ```
 
-Once you know the system is started, you can create aircraft and enqueue them with option 1
+Once you start the system, you can create aircraft and enqueue them with option 1
 
 ```
 Selection:

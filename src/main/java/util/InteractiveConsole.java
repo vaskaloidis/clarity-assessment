@@ -24,6 +24,7 @@ public class InteractiveConsole {
     }
 
     public void run() {
+        Utils.clearScreenAlternate();
         while (this.running) {
             printStats();
             menu();
@@ -36,17 +37,17 @@ public class InteractiveConsole {
         Utils.pln("AIR TRAFFIC CONTROL SYSTEM");
         Utils.pln("Visit http://localhost:4567/queue to view REST server");
         Utils.p("System Running: ");
-        if(rm.systemRunning()) {
+        if (rm.systemRunning()) {
             Utils.printGreenLn("true");
         } else {
             Utils.printRedLn("false");
         }
         int size = rm.getQueue().size();
-        if(size != 0) {
+        if (size != 0) {
             Utils.pln("Aircraft Queue:");
-            for (int x = 0; x <= size-1; x++) {
+            for (int x = 0; x <= size - 1; x++) {
                 Utils.printGreen(rm.getQueue().get(x).getTailNumber());
-                if (x != size-1) {
+                if (x != size - 1) {
                     Utils.printGreen(" -> ");
                 }
             }
@@ -63,7 +64,9 @@ public class InteractiveConsole {
         Utils.printCyanLn("MENU:");
         Utils.printCyanLn("1. Enqueue aircraft");
         Utils.printCyanLn("2. Dequeue aircraft");
-        if (!rm.systemRunning()) { Utils.printRedLn("** 3. Start System **"); }
+        if (!rm.systemRunning()) {
+            Utils.printRedLn("** 3. Start System **");
+        }
         Utils.printCyanLn("4. Exit");
         Utils.printCyanLn("5. Refresh");
         Utils.pln("");
@@ -71,29 +74,24 @@ public class InteractiveConsole {
         int selection = scanner.nextInt();
 
         Request request = null;
-        switch (selection) {
-            case 1:
-                request = enqueueAircraft();
-                break;
-            case 2:
-                request = dequeueAircraft();
-                break;
-            case 3:
-                request = startSystem();
-                break;
-            case 4:
-                this.running = false;
-                break;
-            case 5:
-                // Do Nothing
-                break;
+        if (selection == 1) {
+            request = enqueueAircraft();
+        } else if (selection == 2) {
+            request = dequeueAircraft();
+        } else if (selection == 3) {
+            request = startSystem();
+        } else if (selection == 4) {
+            Utils.printRedLn("Closing...");
+            System.exit(0);
         }
-        if(selection != 4 && selection != 5) {
+        Utils.clearScreenAlternate();
+        if (selection != 4 && selection != 5) {
             try {
                 Response response = rm.acm_request_process(request);
                 Utils.printRedLn(request.getType().equals(RequestType.START) ? response.getMessage() : response.getMessage() + ": " + response.getAircraft());
-                clearScreen();
+                Utils.clearScreenAlternate();
             } catch (Error error) {
+                Utils.clearScreenAlternate();
                 Utils.pln("");
                 Utils.printRed("** ERROR: " + error.getMessage() + " **");
                 Utils.pln("");
@@ -110,7 +108,6 @@ public class InteractiveConsole {
     }
 
     public Request enqueueAircraft() {
-        clearScreen();
         Utils.pln("Tail Number: ");
         String tailnumber = scanner.next();
 
@@ -126,11 +123,5 @@ public class InteractiveConsole {
         Aircraft newAircraft = new Aircraft(tailnumber, selectedType, selectedSize);
         return new Request(RequestType.ENQUEUE, newAircraft);
     }
-
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
-
 
 }

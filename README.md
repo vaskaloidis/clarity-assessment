@@ -12,6 +12,7 @@ First select 3 to start the system
 2. Dequeue aircraft
 ** 3. Start System **
 4. Exit
+5. Refresh
 ```
 
 Once you know the system is started, you can create aircraft and enqueue them with option 1
@@ -42,6 +43,8 @@ N737BR
 To dequeue the next air-craft select option 2.
 
 To exit select option 4.
+
+To update the CLI data displayed (Queue / System-Status if it was updated via the REST server in the background), select option 5.
 
 ### REST Server
 

@@ -39,7 +39,6 @@ public class RequestManager {
                 case START:
                     throw new AlreadyStartedError("System is already started");
                 case ENQUEUE:
-                    System.out.println("Attempting to enqueue: " + request.aircraft.toString());
                     ac = this.queue.enqueueAircraft(request.aircraft);
                     return new Response("Aircraft enqueued", ac, getQueue(), request);
                 case DEQUEUE:

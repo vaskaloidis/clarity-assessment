@@ -174,11 +174,11 @@ The comparator in `/main/java/comparator/AircraftComparator.java` follows the fo
 To build and generate distributions:
 
 ```
-./gradlew build
+gradle build
 ```
 
 To run tests (SDK should have nearly full test coverage):
 
 ```
-./gradle test
+gradle test
 ```

@@ -3,13 +3,7 @@
 ## Usage
 
 ### CLI
-The generated distribution (after built) can be found in `build/distributions/ATC-xx-SNAPSHOT.zip`.
-
-Unzip it to reveal `ATC/lib/ATC-xx-SNAPSHOT.jar`
-
-```
-java -jar ATC-xx-SNAPSHOT.jar
-```
+The application includes a built-in REST server and an interactive CLI that run in parallel.
 
 First select 3 to start the system
 
@@ -38,9 +32,10 @@ You can view the currently (sorted) enqueued aircraft at the top, along-side the
 ```
 ********************************************************
 AIR TRAFFIC CONTROL SYSTEM
+Visit http://localhost:4567/queue to view REST server
 System Running: true
 Aircraft Queue:
-N787BR
+N737BR
 ********************************************************
 ```
 
@@ -78,7 +73,6 @@ You can use any tail-number
 http://localhost:4567/enqueue/:tailnumber/passenger/small
 ```
 
-
 ## Development
 
 The system handles 3 types of requests which are mainly distinguished by the first value of the constructor
@@ -93,11 +87,11 @@ The system handles 3 types of requests which are mainly distinguished by the fir
     // Start Request
     new Request(RequestType.START);
 
-    // Enqueue aircraft Request
+    // Enqueue Aircraft Request
     Aircraft aircraft = new Aircraft(AircraftType.PASSENGER, AircraftSize.LARGE);
     new Request(RequestType.ENQUEUE, aircraft);
 
-    // Start Request
+    // Dequeue Request
     new Request(RequestType.DEQUEUE);
 ```
 
@@ -105,7 +99,7 @@ To create an aircraft, you must (at minimum) define the aircraft-type (`CARGO` o
 
 
 ```java
-    // Passenger aircrafts
+    // Passenger Aircrafts
     Aircraft ac1 = new Aircraft(AircraftType.CARGO, AircraftSize.LARGE);
     Aircraft ac2 = new Aircraft(AircraftType.CARGO, AircraftSize.SMALL);
 
@@ -131,7 +125,6 @@ To use the system, you must pass-in newly constructed `Request`(s) to `RequestMa
     Aircraft aircraft = new Aircraft(AircraftType.PASSENGER, AircraftSize.LARGE);
     Request request = new Request(RequestType.ENQUEUE, aircraft);
     rm.acm_request_process(request);
-
 
     // Dequeue the next aircraft
     Request request = new Request(RequestType.DEQUEUE);
